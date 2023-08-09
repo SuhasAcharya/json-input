@@ -31,7 +31,7 @@ export default function Input({ darkMode, theme }: any) {
   };
 
   return (
-    <div className={`p-4 h-auto w-full mt-[10%] ${theme}`}>
+    <div className={`p-4 h-auto w-full  ${theme}`}>
       <form action="" className="flex items-center justify-center">
         <label
           className={`w-64 flex flex-col items-center px-4 py-6 ${theme}  rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer border-blue`}
