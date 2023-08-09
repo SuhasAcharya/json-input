@@ -3,7 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { BsFiletypeJson } from "react-icons/bs";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Input({ darkMode }: any) {
+export default function Input({ darkMode, theme }: any) {
   const [fileContent, setFileContent] = useState("");
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,16 +31,10 @@ export default function Input({ darkMode }: any) {
   };
 
   return (
-    <div
-      className={`p-4 h-auto w-full mt-[10%] ${
-        darkMode ? "bg-black" : "bg-white"
-      }`}
-    >
+    <div className={`p-4 h-auto w-full mt-[10%] ${theme}`}>
       <form action="" className="flex items-center justify-center">
         <label
-          className={`w-64 flex flex-col items-center px-4 py-6 ${
-            darkMode ? "bg-black" : "bg-white"
-          }  rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer border-blue`}
+          className={`w-64 flex flex-col items-center px-4 py-6 ${theme}  rounded-lg shadow-lg tracking-wide uppercase border cursor-pointer border-blue`}
         >
           <svg
             className={`"w-8 h-8 ${darkMode ? "text-white" : "text-black"} `}
@@ -50,11 +44,7 @@ export default function Input({ darkMode }: any) {
           >
             <BsFiletypeJson />
           </svg>
-          <span
-            className={`mt-2 text-base leading-normal ${
-              darkMode ? "text-white" : "text-black"
-            }`}
-          >
+          <span className={`mt-2 text-base leading-normal ${theme}`}>
             Select a .json file
           </span>
           <input
@@ -69,18 +59,10 @@ export default function Input({ darkMode }: any) {
 
       {fileContent && (
         <div className="mt-4 p-4 bg-gray-100 rounded-md">
-          <h2
-            className={`text-lg font-semibold ${
-              darkMode ? "text-white" : "text-black"
-            }`}
-          >
+          <h2 className={`text-lg font-semibold ${theme}`}>
             Uploaded File Content:
           </h2>
-          <pre
-            className={`mt-2 whitespace-pre-wrap ${
-              darkMode ? "text-white" : "text-black"
-            } `}
-          >
+          <pre className={`mt-2 whitespace-pre-wrap ${theme} `}>
             {fileContent}
           </pre>
         </div>
