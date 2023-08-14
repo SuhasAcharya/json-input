@@ -44,13 +44,13 @@ const Query: React.FC<QueryProps> = ({
             <input
               type="text"
               placeholder="Type here"
-              className={`input input-bordered input-success w-full `}
+              className={`input input-bordered input-success w-full text-black font-medium `}
               value={userQuery}
               onChange={handleInputChange}
               required
             />
             <button
-              className="btn btn-xs sm:btn-sm md:btn-md btn-outline btn-success absolute right-0"
+              className="btn btn-xs sm:btn-sm md:btn-md btn-outline btn-success absolute right-0 border-none"
               onClick={(e) => {
                 e.preventDefault();
                 handleSendButtonClick();

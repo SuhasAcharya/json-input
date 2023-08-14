@@ -20,21 +20,29 @@ const Home: React.FC = () => {
     setDarkMode(!darkMode);
   };
 
+  useEffect(() => {
+    const theme = darkMode ? "bg-gray-800 text-white" : "bg-white text-black";
+    setTheme(theme);
+  }, [darkMode]);
+
   const handleSendClick = () => {
     setShowRequest(true);
     setChatHistory([...chatHistory, { type: "user", message: userQuery }]);
     setUserQuery("");
   };
 
-  useEffect(() => {
-    const theme = darkMode ? "bg-gray-800 text-white" : "bg-white text-black";
-    setTheme(theme);
-  }, [darkMode]);
+  const shouldRenderInput = userQuery.trim().toLowerCase() === "json";
 
   return (
-    <div className={`flex flex-col ${theme} h-screen`}>
+    <div
+      className={`flex flex-col ${theme} h-screen transition-all duration-500`}
+    >
       <div className="w-full flex justify-end p-8">
-        <div className="fixed border-[1px] rounded-md border-gray-700 w-10 flex items-center justify-center h-10 bg-slate-600 text-white">
+        <div
+          className={`fixed border-[1px] rounded-md border-gray-700 w-10 flex items-center justify-center h-10 bg-slate-600 text-white transition-colors duration-300 ${
+            darkMode ? "bg-gray-700" : "bg-slate-600"
+          }`}
+        >
           <button onClick={toggleTheme}>
             {darkMode ? (
               <BsSun className="text-yellow-300" />
@@ -44,7 +52,7 @@ const Home: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="flex-grow overflow-y-auto pb-[100px] mt-20 ">
+      <div className="flex-grow overflow-y-auto pb-[100px] mt-10 ">
         {showRequest && (
           <div className="space-y-4 p-4 bg-green-200">
             {chatHistory.map((item, index) => (
@@ -85,13 +93,15 @@ const Home: React.FC = () => {
             ))}
           </div>
         )}
-        {/* <Input
-          darkMode={darkMode}
-          theme={theme}
-          onSendClick={handleSendClick}
-          userQuery={userQuery}
-          setUserQuery={setUserQuery}
-        /> */}
+        {shouldRenderInput && (
+          <Input
+            darkMode={darkMode}
+            theme={theme}
+            onSendClick={handleSendClick}
+            userQuery={userQuery}
+            setUserQuery={setUserQuery}
+          />
+        )}
         {showRequest && <Request darkMode={darkMode} theme={theme} />}
         {/* <Response darkMode={darkMode} theme={theme} /> */}
       </div>

@@ -36,7 +36,7 @@ export default function Request({ darkMode, theme }: any) {
               {item.type === "string" ? (
                 <input
                   type="text"
-                  className="border rounded-md p-2 w-[100vh] focus:outline-none focus:border-blue-500"
+                  className=" text-black border rounded-md p-2 w-[100vh] focus:outline-none focus:border-blue-500"
                 />
               ) : (
                 item.type === "boolean" && (
@@ -44,7 +44,7 @@ export default function Request({ darkMode, theme }: any) {
                     <label className="cursor-pointer label">
                       <input
                         type="checkbox"
-                        className="toggle toggle-primary"
+                        className="text-black toggle toggle-primary"
                       />
                     </label>
                   </div>
