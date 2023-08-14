@@ -60,14 +60,24 @@ const Home: React.FC = () => {
                   }`}
                 >
                   {item.type === "user" && (
-                    <LuScanFace className="h-7 w-7 ml-4" />
+                    <LuScanFace
+                      className={`${
+                        darkMode ? "text-black" : "text-black"
+                      } h-7 w-7 ml-4`}
+                    />
                   )}
                   <div
                     className={`rounded-md p-2 max-w-[70%] ${
                       item.type === "user" ? "order-2" : "order-1"
                     }`}
                   >
-                    <text className="font-semibold ">{item.message}</text>
+                    <text
+                      className={`font-semibold ${
+                        darkMode ? "text-black" : "text-black"
+                      } `}
+                    >
+                      {item.message}
+                    </text>
                   </div>
                   {item.type !== "user" && <LuScanFace />}
                 </div>
