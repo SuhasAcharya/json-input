@@ -26,7 +26,11 @@ export default function Request({ darkMode, theme }: any) {
           </span>
           {data.map((item) => (
             <div key={item.key} className="mb-4">
-              <label className="block font-medium mb-1 text-gray-700">
+              <label
+                className={`block font-medium mb-1 ${
+                  darkMode ? "text-white" : "text-gray-700"
+                }`}
+              >
                 {item.key}
               </label>
               {item.type === "string" ? (
