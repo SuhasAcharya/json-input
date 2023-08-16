@@ -59,10 +59,12 @@ export default function Input({ darkMode, theme }: any) {
 
       {fileContent && (
         <div className="mt-4 p-4 bg-gray-100 rounded-md">
-          <h2 className={`text-lg font-semibold ${theme}`}>
+          <h2 className={`text-lg font-semibold bg-gray-100  text-gray-700 `}>
             Uploaded File Content:
           </h2>
-          <pre className={`mt-2 whitespace-pre-wrap ${theme} `}>
+          <pre
+            className={`mt-2 whitespace-pre-wrap bg-gray-100  text-gray-700 `}
+          >
             {fileContent}
           </pre>
         </div>

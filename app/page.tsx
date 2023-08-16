@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             darkMode ? "text-white" : "text-gray-700"
           } font-bold h-auto fixed left-6 top-8  text-2xl`}
         >
-          Optus Homes
+          Optus Homes Chat Bot
         </h2>
         <div
           className={`fixed top-8 border-[1px] rounded-md border-white w-10 flex items-center justify-center h-10 bg-slate-600 text-white transition-colors duration-300 ${
@@ -61,17 +61,13 @@ const Home: React.FC = () => {
       </div>
       <div className="flex-grow overflow-y-auto pb-[100px] mt-10 ">
         {showRequest && (
-          <div
-            className={`space-y-4 p-4 ${
-              darkMode ? " bg-gray-500" : "bg-gray-700"
-            } `}
-          >
+          <div className={`space-y-4 p-4 `}>
             {chatHistory.map((item, index) => (
               <div
                 key={index}
                 className={`flex ${
                   item.type === "user" ? "justify-start" : "justify-start"
-                }`}
+                } rounded-lg border-[1px] border-gray-600 bg-gray-500 w-auto p-2`}
               >
                 <div
                   className={`flex items-center space-x-2 relative ${
@@ -85,7 +81,7 @@ const Home: React.FC = () => {
                     //   } h-7 w-7 absolute left-4`}
                     // />
                     <div
-                      className={`absolute left-4 h-4 w-4 rounded-full bg-white flex justify-center items-center p-4`}
+                      className={`absolute left-4 h-4 w-4 rounded-full border-2 border-green-300 bg-white flex justify-center items-center p-4`}
                     >
                       <text className="text-black">PV</text>
                     </div>
@@ -95,11 +91,7 @@ const Home: React.FC = () => {
                       item.type === "user" ? "order-2" : "order-1"
                     }`}
                   >
-                    <text
-                      className={`font-semibold ml-8 w-full ${
-                        darkMode ? "text-white" : "text-white"
-                      } `}
-                    >
+                    <text className={`font-semibold ml-10 w-full text-white `}>
                       {item.message}
                     </text>
                   </div>
