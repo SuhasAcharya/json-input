@@ -35,7 +35,7 @@ const Query: React.FC<QueryProps> = ({
   };
 
   return (
-    <div className={`h-auto w-full`}>
+    <div className={`h-auto w-full border-t-2 border-gray-300`}>
       <form action="" className="flex items-center justify-center">
         <label
           className={`w-[100%] h-auto flex flex-col items-center px-4 py-4 gap-y-4 ${theme} rounded-lg shadow-lg tracking-wide uppercase cursor-pointer `}

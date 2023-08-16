@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    const theme = darkMode ? "bg-gray-800 text-white" : "bg-white text-black";
+    const theme = darkMode ? "bg-gray-600 text-white" : "bg-white text-black";
     setTheme(theme);
   }, [darkMode]);
 
@@ -35,11 +35,18 @@ const Home: React.FC = () => {
 
   return (
     <div
-      className={`flex flex-col ${theme} h-screen transition-all duration-500`}
+      className={`flex flex-col ${theme} h-screen transition-all duration-400`}
     >
-      <div className="w-full flex justify-end p-8">
+      <div className="w-full flex justify-end p-8 ">
+        <h2
+          className={`${
+            darkMode ? "text-white" : "text-gray-700"
+          } font-bold h-auto fixed left-6 top-8  text-2xl`}
+        >
+          Optus Homes
+        </h2>
         <div
-          className={`fixed border-[1px] rounded-md border-gray-700 w-10 flex items-center justify-center h-10 bg-slate-600 text-white transition-colors duration-300 ${
+          className={`fixed top-8 border-[1px] rounded-md border-white w-10 flex items-center justify-center h-10 bg-slate-600 text-white transition-colors duration-300 ${
             darkMode ? "bg-gray-700" : "bg-slate-600"
           }`}
         >
@@ -54,40 +61,49 @@ const Home: React.FC = () => {
       </div>
       <div className="flex-grow overflow-y-auto pb-[100px] mt-10 ">
         {showRequest && (
-          <div className="space-y-4 p-4 bg-green-200">
+          <div
+            className={`space-y-4 p-4 ${
+              darkMode ? " bg-gray-500" : "bg-gray-700"
+            } `}
+          >
             {chatHistory.map((item, index) => (
               <div
                 key={index}
                 className={`flex ${
-                  item.type === "user" ? "justify-end" : "justify-start"
+                  item.type === "user" ? "justify-start" : "justify-start"
                 }`}
               >
                 <div
-                  className={`flex items-center space-x-2 ${
+                  className={`flex items-center space-x-2 relative ${
                     item.type === "user" ? "flex-row-reverse" : "flex-row"
                   }`}
                 >
                   {item.type === "user" && (
-                    <LuScanFace
-                      className={`${
-                        darkMode ? "text-black" : "text-black"
-                      } h-7 w-7 ml-4`}
-                    />
+                    // <LuScanFace
+                    //   className={`${
+                    //     darkMode ? "text-white" : "text-white"
+                    //   } h-7 w-7 absolute left-4`}
+                    // />
+                    <div
+                      className={`absolute left-4 h-4 w-4 rounded-full bg-white flex justify-center items-center p-4`}
+                    >
+                      <text className="text-black">PV</text>
+                    </div>
                   )}
                   <div
-                    className={`rounded-md p-2 max-w-[70%] ${
+                    className={`rounded-md p-2 pl-5 ${
                       item.type === "user" ? "order-2" : "order-1"
                     }`}
                   >
                     <text
-                      className={`font-semibold ${
-                        darkMode ? "text-black" : "text-black"
+                      className={`font-semibold ml-8 w-full ${
+                        darkMode ? "text-white" : "text-white"
                       } `}
                     >
                       {item.message}
                     </text>
                   </div>
-                  {item.type !== "user" && <LuScanFace />}
+                  {/* {item.type !== "user" && <LuScanFace />} */}
                 </div>
               </div>
             ))}
